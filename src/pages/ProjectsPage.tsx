@@ -14,14 +14,14 @@ export default function ProjectsPage() {
       type: 'Project Coordinator', 
       location: 'Strategic Operations',
       desc: 'Oversaw strategic communications, advanced project scheduling, rigorous site inspections, and comprehensive quality control.',
-      image: 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     { 
       title: 'Studio Emodi', 
       type: 'Structural Engineer', 
       location: 'Structural Systems',
       desc: 'Handled detailed site coordination and the design and implementation of robust structural systems.',
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356f12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     { 
       title: 'Federal Ministry of Power, Works & Housing', 
@@ -33,8 +33,8 @@ export default function ProjectsPage() {
   ];
 
   const galleryImages = [
-    { url: 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', caption: 'Active Site Inspection' },
-    { url: 'https://images.unsplash.com/photo-1504307651254-35680f356f12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', caption: 'Structural Planning' },
+    { url: 'https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', caption: 'Active Site Inspection' },
+    { url: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', caption: 'Structural Planning' },
     { url: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', caption: 'Steel Framework Erection' },
     { url: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', caption: 'AutoCAD & Drafting' },
     { url: 'https://images.unsplash.com/photo-1593444078864-77dbbb219b16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', caption: 'Quality Assurance Testing' },
