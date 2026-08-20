@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import type { ModalType } from '../types';
 
@@ -7,7 +6,6 @@ interface NavbarProps {
 }
 
 export default function Navbar({ onOpenModal }: NavbarProps) {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path ? 'active' : '';
@@ -45,7 +43,12 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
         </li>
         <li>
           <Link to="/projects" className={`nav-link ${isActive('/projects')}`}>
-            Projects
+            Experience
+          </Link>
+        </li>
+        <li>
+          <Link to="/gallery" className={`nav-link ${isActive('/gallery')}`}>
+            Gallery
           </Link>
         </li>
         <li>
