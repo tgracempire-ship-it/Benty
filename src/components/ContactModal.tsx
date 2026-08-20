@@ -38,26 +38,6 @@ export default function ContactModal({ type, onClose }: ContactModalProps) {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Construct the email
-    const subject = encodeURIComponent(`New Engineering Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nProject Details:\n${formData.message}`);
-                 
-    const mailtoUrl = `mailto:Benytecons@gmail.com?subject=${subject}&body=${body}`;
-    
-    const btn = document.getElementById('submit-btn');
-    if (btn) {
-      btn.textContent = 'Opening Email...';
-      
-      setTimeout(() => {
-        window.location.href = mailtoUrl;
-        handleClose();
-      }, 600);
-    }
-  };
-
   if (!type) return null;
 
   const title = type === 'consultation' 
@@ -73,11 +53,15 @@ export default function ContactModal({ type, onClose }: ContactModalProps) {
           Fill out the form below and our engineering team will get back to you within 24 hours.
         </p>
         
-        <form className="modal-form animated-form" onSubmit={handleSubmit}>
+        <form className="modal-form animated-form" action="https://formsubmit.co/Benytecons@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value={`New Inquiry: ${title}`} />
+          <input type="hidden" name="_captcha" value="true" />
+          
           <div className="form-group floating-label-group">
             <input 
               type="text" 
               id="name" 
+              name="name"
               required 
               value={formData.name}
               onChange={handleChange}
@@ -91,6 +75,7 @@ export default function ContactModal({ type, onClose }: ContactModalProps) {
             <input 
               type="email" 
               id="email" 
+              name="email"
               required 
               value={formData.email}
               onChange={handleChange}
@@ -104,6 +89,7 @@ export default function ContactModal({ type, onClose }: ContactModalProps) {
             <input 
               type="text" 
               id="company" 
+              name="company"
               required 
               value={formData.company}
               onChange={handleChange}
@@ -116,6 +102,7 @@ export default function ContactModal({ type, onClose }: ContactModalProps) {
           <div className="form-group floating-label-group">
             <textarea 
               id="message" 
+              name="message"
               rows={3} 
               required 
               value={formData.message}

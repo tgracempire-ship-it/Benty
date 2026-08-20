@@ -1,6 +1,6 @@
 import type { FaqItem, Metric, TrustItem } from '../types';
 
-export const firmName = 'Benty Engineering & Consulting';
+export const firmName = 'Bentye Engineering & Consulting';
 export const firmTagline = 'Engineering Precision. Structural Integrity. Project Delivery.';
 export const firmSubtitle =
   'Expert Civil, Structural Engineering, and Project Management for your critical infrastructure. Ensure safety and compliance.';

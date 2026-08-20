@@ -28,7 +28,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           </svg>
         </div>
         <div>
-          <div className="brand-text-top">BENTY</div>
+          <div className="brand-text-top">BENTYE</div>
           <div className="brand-text-bottom">Engineering &amp; Consulting</div>
         </div>
       </Link>
