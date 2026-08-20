@@ -55,13 +55,13 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           </ul>
         </li>
         <li>
-          <Link to="/projects" className={`nav-link ${isActive('/projects')}`} onClick={closeMenu}>
+          <Link to="/experience" className={`nav-link ${isActive('/experience')}`} onClick={closeMenu}>
             Experience
           </Link>
         </li>
         <li>
-          <Link to="/gallery" className={`nav-link ${isActive('/gallery')}`} onClick={closeMenu}>
-            Gallery
+          <Link to="/projects" className={`nav-link ${isActive('/projects')}`} onClick={closeMenu}>
+            Projects
           </Link>
         </li>
         <li>
