@@ -41,28 +41,18 @@ export default function ContactModal({ type, onClose }: ContactModalProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Sanitize phone number (remove spaces, dashes, brackets)
-    // Replace this with your actual WhatsApp business number
-    const targetPhone = '15551234567'; 
-    
-    // Construct the message
-    const text = `*New Engineering Inquiry*\n\n` +
-                 `*Name:* ${formData.name}\n` +
-                 `*Email:* ${formData.email}\n` +
-                 `*Company:* ${formData.company}\n` +
-                 `*Details:* ${formData.message}`;
+    // Construct the email
+    const subject = encodeURIComponent(`New Engineering Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nProject Details:\n${formData.message}`);
                  
-    const encodedText = encodeURIComponent(text);
-    const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodedText}`;
+    const mailtoUrl = `mailto:Benytecons@gmail.com?subject=${subject}&body=${body}`;
     
     const btn = document.getElementById('submit-btn');
     if (btn) {
-      btn.textContent = 'Opening WhatsApp...';
-      btn.style.background = '#25D366'; // WhatsApp Green
-      btn.style.color = 'white';
+      btn.textContent = 'Opening Email...';
       
       setTimeout(() => {
-        window.open(whatsappUrl, '_blank');
+        window.location.href = mailtoUrl;
         handleClose();
       }, 600);
     }

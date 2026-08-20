@@ -9,12 +9,12 @@ export default function ContactPage() {
     setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleWhatsappSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const targetPhone = '15551234567'; 
-    const text = `*New Contact Page Inquiry*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Message:* ${formData.message}`;
-    const url = `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
+    const subject = encodeURIComponent(`New Inquiry from ${formData.name} - ${formData.email}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const url = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+    window.location.href = url;
   };
 
   return (
@@ -59,8 +59,8 @@ export default function ContactPage() {
 
            {/* Embedded Form */}
            <div className="contact-form-card">
-              <h2>Send a Message via WhatsApp</h2>
-              <form className="modal-form animated-form" onSubmit={handleWhatsappSubmit}>
+              <h2>Send an Email Proposal</h2>
+              <form className="modal-form animated-form" onSubmit={handleEmailSubmit}>
                 <div className="form-group floating-label-group">
                   <input type="text" id="name" required className="floating-input" value={formData.name} onChange={handleChange} />
                   <label htmlFor="name" className="floating-label">Full Name</label>
@@ -79,8 +79,8 @@ export default function ContactPage() {
                   <span className="input-highlight"></span>
                 </div>
                 
-                <button type="submit" className="btn-primary btn-animate-click" style={{ width: '100%', marginTop: '10px', background: '#25D366' }}>
-                  Open WhatsApp
+                <button type="submit" className="btn-primary btn-animate-click" style={{ width: '100%', marginTop: '10px' }}>
+                  Draft Email
                 </button>
               </form>
            </div>

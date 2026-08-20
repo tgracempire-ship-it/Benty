@@ -1,11 +1,11 @@
 import type { FaqItem, Metric, TrustItem } from '../types';
 
-export const firmName = 'David Engineering & Consulting';
+export const firmName = 'Benty Engineering & Consulting';
 export const firmTagline = 'Engineering Precision. Structural Integrity. Project Delivery.';
 export const firmSubtitle =
   'Expert Civil, Structural Engineering, and Project Management for your critical infrastructure. Ensure safety and compliance.';
-export const contactEmail = 'info@davidengineering.com';
-export const contactPhone = '+1 (555) 123-4567';
+export const contactEmail = 'Benytecons@gmail.com';
+export const contactPhone = '+234 706 771 3622';
 export const contactAddress = '100 Structural Blvd, Suite 400\nEngineering City, ST 12345';
 
 export const trustItems: TrustItem[] = [
