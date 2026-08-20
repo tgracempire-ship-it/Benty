@@ -1,0 +1,24 @@
+/* ============================================
+   ICONS - Inline SVG Styles & Icon Classes
+   ============================================ */
+
+/* Service icon color overrides for right-column cards */
+.icon-structural { color: #2a9db5; }
+.icon-site       { color: #2a9db5; }
+.icon-quality    { color: #2a9db5; }
+
+/* Step illustration placeholders */
+.step-illustration {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-illustration svg {
+  width: 60px;
+  height: 60px;
+  opacity: 0.65;
+}

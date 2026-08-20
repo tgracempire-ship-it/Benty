@@ -1,0 +1,9 @@
+{
+  "name": "David Engineering & Consulting",
+  "short_name": "David Eng",
+  "description": "Expert Civil, Structural Engineering, and Project Management.",
+  "theme_color": "#0F3E4D",
+  "background_color": "#F8FAFC",
+  "display": "standalone",
+  "start_url": "/"
+}

@@ -1,0 +1,146 @@
+import { useState, useEffect } from 'react';
+import type { ModalType } from '../types';
+
+interface ContactModalProps {
+  type: ModalType;
+  onClose: () => void;
+}
+
+export default function ContactModal({ type, onClose }: ContactModalProps) {
+  const [isClosing, setIsClosing] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') handleClose();
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      onClose();
+      setIsClosing(false);
+    }, 300);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Sanitize phone number (remove spaces, dashes, brackets)
+    // Replace this with your actual WhatsApp business number
+    const targetPhone = '15551234567'; 
+    
+    // Construct the message
+    const text = `*New Engineering Inquiry*\n\n` +
+                 `*Name:* ${formData.name}\n` +
+                 `*Email:* ${formData.email}\n` +
+                 `*Company:* ${formData.company}\n` +
+                 `*Details:* ${formData.message}`;
+                 
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodedText}`;
+    
+    const btn = document.getElementById('submit-btn');
+    if (btn) {
+      btn.textContent = 'Opening WhatsApp...';
+      btn.style.background = '#25D366'; // WhatsApp Green
+      btn.style.color = 'white';
+      
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        handleClose();
+      }, 600);
+    }
+  };
+
+  if (!type) return null;
+
+  const title = type === 'consultation' 
+    ? 'Book a Technical Consultation' 
+    : 'Request a Proposal';
+
+  return (
+    <div className={`modal-overlay ${isClosing ? 'closing' : ''}`} onClick={handleClose}>
+      <div className={`modal-content ${isClosing ? 'closing' : ''}`} onClick={e => e.stopPropagation()}>
+        <button className="modal-close" onClick={handleClose} aria-label="Close modal">&times;</button>
+        <h2 className="modal-title">{title}</h2>
+        <p className="modal-desc">
+          Fill out the form below and our engineering team will get back to you within 24 hours.
+        </p>
+        
+        <form className="modal-form animated-form" onSubmit={handleSubmit}>
+          <div className="form-group floating-label-group">
+            <input 
+              type="text" 
+              id="name" 
+              required 
+              value={formData.name}
+              onChange={handleChange}
+              className="floating-input"
+            />
+            <label htmlFor="name" className="floating-label">Full Name</label>
+            <span className="input-highlight"></span>
+          </div>
+          
+          <div className="form-group floating-label-group">
+            <input 
+              type="email" 
+              id="email" 
+              required 
+              value={formData.email}
+              onChange={handleChange}
+              className="floating-input"
+            />
+            <label htmlFor="email" className="floating-label">Work Email</label>
+            <span className="input-highlight"></span>
+          </div>
+          
+          <div className="form-group floating-label-group">
+            <input 
+              type="text" 
+              id="company" 
+              required 
+              value={formData.company}
+              onChange={handleChange}
+              className="floating-input"
+            />
+            <label htmlFor="company" className="floating-label">Company / Organization</label>
+            <span className="input-highlight"></span>
+          </div>
+          
+          <div className="form-group floating-label-group">
+            <textarea 
+              id="message" 
+              rows={3} 
+              required 
+              value={formData.message}
+              onChange={handleChange}
+              className="floating-textarea"
+            ></textarea>
+            <label htmlFor="message" className="floating-label">Project Details</label>
+            <span className="input-highlight"></span>
+          </div>
+          
+          <button type="submit" id="submit-btn" className="btn-primary btn-animate-click" style={{ width: '100%', marginTop: '15px' }}>
+            Submit Request
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
