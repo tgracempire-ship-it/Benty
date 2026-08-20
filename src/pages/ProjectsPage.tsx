@@ -46,7 +46,7 @@ export default function ProjectsPage() {
       <div className="container page-content">
         <div className="projects-grid">
           {projects.map((p, i) => (
-            <div key={i} className="project-card">
+            <div key={i} className="project-card reveal-on-scroll">
               <div className="project-img-placeholder" style={{ 
                 backgroundImage: `url(${p.image})`,
                 backgroundSize: 'cover',

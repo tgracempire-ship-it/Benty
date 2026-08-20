@@ -24,7 +24,7 @@ export default function GalleryPage() {
       <div className="container page-content">
         <div className="gallery-grid">
           {images.map((img, i) => (
-            <div key={i} className="gallery-card">
+            <div key={i} className="gallery-card reveal-on-scroll">
               <div 
                 className="gallery-img" 
                 style={{ 

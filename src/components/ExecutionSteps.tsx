@@ -47,7 +47,7 @@ export default function ExecutionSteps() {
       <h2 className="section-heading">THE EXECUTION ADVANTAGE</h2>
       <div className="steps-row">
         {executionSteps.map((s, i) => (
-          <div key={s.step} className="step-item">
+          <div key={s.step} className="step-item reveal-on-scroll">
             <div className="step-illustration">
               <StepIllustration step={s.step} />
             </div>

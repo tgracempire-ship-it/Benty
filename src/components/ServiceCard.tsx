@@ -62,7 +62,7 @@ export default function ServiceCardComponent({
   icon, title, description, highlight, variant = 'left'
 }: ServiceCardComponentProps) {
   return (
-    <div className={`service-card service-card--${variant}`}>
+    <div className={`service-card service-card--${variant} reveal-on-scroll`}>
       <div className="service-card-icon">
         <ServiceIcon type={icon} />
       </div>
