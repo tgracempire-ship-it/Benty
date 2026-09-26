@@ -12,6 +12,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
       <div className="container">
         <div className="hero-content">
           <h1 className="hero-headline animate-stagger-1">
+            <span style={{ display: 'block', color: 'var(--gold)', fontSize: '0.6em', marginBottom: '10px' }}>Hi, I'm Ebenezer.</span>
             {firmTagline.split('.').filter(Boolean).map((line, i) => (
               <span key={i} style={{ display: 'block' }}>{line.trim()}.</span>
             ))}
@@ -20,15 +21,15 @@ export default function Hero({ onOpenModal }: HeroProps) {
           <div className="hero-buttons animate-stagger-3">
             <button
               className="btn btn-primary btn-animate-click"
-              onClick={() => onOpenModal('consultation')}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Book a Technical Consultation
+              Hire Me
             </button>
             <button
               className="btn btn-outline btn-animate-click"
-              onClick={() => onOpenModal('proposal')}
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Request a Proposal
+              View My Work
             </button>
           </div>
         </div>

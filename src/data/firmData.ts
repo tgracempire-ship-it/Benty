@@ -1,12 +1,12 @@
 import type { FaqItem, Metric, TrustItem } from '../types';
 
-export const firmName = 'Bentye Engineering & Consulting';
-export const firmTagline = 'Engineering Precision. Structural Integrity. Project Delivery.';
+export const firmName = 'Ebenezer';
+export const firmTagline = 'Civil & Structural Engineer. Project Manager.';
 export const firmSubtitle =
-  'Expert Civil, Structural Engineering, and Project Management for your critical infrastructure. Ensure safety and compliance.';
+  'I deliver expert civil engineering, structural design, and project management for critical infrastructure, ensuring safety and compliance.';
 export const contactEmail = 'Benytecons@gmail.com';
 export const contactPhone = '+234 706 771 3622';
-export const contactAddress = '100 Structural Blvd, Suite 400\nEngineering City, ST 12345';
+export const contactAddress = 'Engineering City, ST 12345';
 
 export const trustItems: TrustItem[] = [
   { id: 't1', icon: 'shield', text: 'Federal Regulatory Compliance' },

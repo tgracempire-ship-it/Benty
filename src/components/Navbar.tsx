@@ -28,7 +28,7 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
           </svg>
         </div>
         <div>
-          <div className="brand-text-top">BENTYE</div>
+          <div className="brand-text-top">EBENEZER</div>
           <div className="brand-text-bottom">Engineering &amp; Consulting</div>
         </div>
       </Link>
@@ -44,30 +44,20 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
 
       {/* Nav links */}
       <ul className={`navbar-nav ${mobileMenuOpen ? 'is-open' : ''}`}>
-        <li className="nav-item-dropdown">
-          <Link to="/services" className={`nav-link ${isActive('/services')}`} onClick={closeMenu}>
-            Services <span className="nav-arrow">▾</span>
-          </Link>
-          <ul className="dropdown-menu">
-            <li><Link to="/services#structural" onClick={closeMenu}>Structural Analysis</Link></li>
-            <li><Link to="/services#site" onClick={closeMenu}>Site Management</Link></li>
-            <li><Link to="/services#quality" onClick={closeMenu}>Quality Control</Link></li>
-          </ul>
+        <li>
+          <a href="#services" className="nav-link" onClick={closeMenu}>
+            Expertise
+          </a>
         </li>
         <li>
-          <Link to="/projects" className={`nav-link ${isActive('/projects')}`} onClick={closeMenu}>
-            Projects
-          </Link>
+          <a href="#projects" className="nav-link" onClick={closeMenu}>
+            Experience & Projects
+          </a>
         </li>
         <li>
-          <Link to="/process" className={`nav-link ${isActive('/process')}`} onClick={closeMenu}>
-            Process
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" className={`nav-link ${isActive('/contact')}`} onClick={closeMenu}>
-            Contact
-          </Link>
+          <a href="#contact" className="nav-link" onClick={closeMenu}>
+            Contact Me
+          </a>
         </li>
         
         {/* Mobile CTA inside menu */}
@@ -76,11 +66,11 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
              className="btn btn-primary"
              style={{ width: '100%', marginTop: '10px' }}
              onClick={() => {
-               onOpenModal('consultation');
+               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                closeMenu();
              }}
            >
-             Book Consultation
+             Hire Me
            </button>
         </li>
       </ul>
@@ -88,9 +78,9 @@ export default function Navbar({ onOpenModal }: NavbarProps) {
       {/* Desktop CTA */}
       <button
         className="btn btn-nav-cta btn-animate-click"
-        onClick={() => onOpenModal('consultation')}
+        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        Book Consultation
+        Hire Me
       </button>
     </nav>
   );
