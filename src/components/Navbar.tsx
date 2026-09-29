@@ -1,29 +1,35 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const closeMenu = () => setMobileMenuOpen(false);
 
+  const scrollTo = (id: string) => {
+    closeMenu();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className="navbar">
-      {/* Brand */}
-      <Link to="/" className="navbar-brand" onClick={closeMenu}>
-        <div className="brand-logo">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-            <rect width="40" height="40" rx="4" fill="#0F3E4D" />
-            <path d="M10 10 H20 C28 10 30 15 30 20 C30 25 28 30 20 30 H10 Z"
-              fill="none" stroke="white" strokeWidth="2.5" />
-            <line x1="10" y1="10" x2="10" y2="30" stroke="white" strokeWidth="2.5" />
-            <line x1="10" y1="20" x2="22" y2="20" stroke="#EFA526" strokeWidth="1.5" />
-          </svg>
+      {/* Brand with Avatar */}
+      <a href="#hero" className="navbar-brand" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }}>
+        <div className="brand-avatar-wrap">
+          <img 
+            src="/ebenezer-avatar.jpg" 
+            alt="Ebenezer David" 
+            className="brand-avatar-img"
+          />
+          <span className="status-indicator" title="Available for projects"></span>
         </div>
         <div>
-          <div className="brand-text-top">EBENEZER</div>
-          <div className="brand-text-bottom">Engineering &amp; Consulting</div>
+          <div className="brand-text-top">EBENEZER DAVID</div>
+          <div className="brand-text-bottom">Civil &amp; Structural Engineer</div>
         </div>
-      </Link>
+      </a>
       
       {/* Mobile Toggle */}
       <button 
@@ -37,18 +43,33 @@ export default function Navbar() {
       {/* Nav links */}
       <ul className={`navbar-nav ${mobileMenuOpen ? 'is-open' : ''}`}>
         <li>
-          <a href="#services" className="nav-link" onClick={closeMenu}>
+          <a href="#about" className="nav-link" onClick={(e) => { e.preventDefault(); scrollTo('about'); }}>
+            About
+          </a>
+        </li>
+        <li>
+          <a href="#expertise" className="nav-link" onClick={(e) => { e.preventDefault(); scrollTo('expertise'); }}>
             Expertise
           </a>
         </li>
         <li>
-          <a href="#projects" className="nav-link" onClick={closeMenu}>
-            Experience & Projects
+          <a href="#methodology" className="nav-link" onClick={(e) => { e.preventDefault(); scrollTo('methodology'); }}>
+            Methodology
           </a>
         </li>
         <li>
-          <a href="#contact" className="nav-link" onClick={closeMenu}>
-            Contact Me
+          <a href="#experience" className="nav-link" onClick={(e) => { e.preventDefault(); scrollTo('experience'); }}>
+            Experience
+          </a>
+        </li>
+        <li>
+          <a href="#gallery" className="nav-link" onClick={(e) => { e.preventDefault(); scrollTo('gallery'); }}>
+            Projects
+          </a>
+        </li>
+        <li>
+          <a href="#contact" className="nav-link" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}>
+            Contact
           </a>
         </li>
         
@@ -57,12 +78,9 @@ export default function Navbar() {
            <button
              className="btn btn-primary"
              style={{ width: '100%', marginTop: '10px' }}
-             onClick={() => {
-               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-               closeMenu();
-             }}
+             onClick={() => scrollTo('contact')}
            >
-             Hire Me
+             Hire Ebenezer
            </button>
         </li>
       </ul>
@@ -70,9 +88,9 @@ export default function Navbar() {
       {/* Desktop CTA */}
       <button
         className="btn btn-nav-cta btn-animate-click"
-        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => scrollTo('contact')}
       >
-        Hire Me
+        Hire Ebenezer
       </button>
     </nav>
   );
