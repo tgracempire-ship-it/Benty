@@ -1,8 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './Navbar';
-import ContactModal from './ContactModal';
-import type { ModalType } from '../types';
 
 export default function Layout() {
   const location = useLocation();
@@ -16,7 +14,6 @@ export default function Layout() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            // Optional: observer.unobserve(entry.target) if you only want it to reveal once
           }
         });
       },
@@ -28,18 +25,17 @@ export default function Layout() {
       hiddenElements.forEach((el) => observer.observe(el));
     };
 
-    // Small timeout to allow React to render the new route components
     const timeout = setTimeout(observeElements, 100);
     
     return () => {
       observer.disconnect();
       clearTimeout(timeout);
     };
-  }, [location.pathname]); // Re-run when the route changes!
+  }, [location.pathname]);
 
   return (
     <>
-      <Navbar onOpenModal={() => {}} />
+      <Navbar />
       
       <main className="main-content">
         <Outlet />

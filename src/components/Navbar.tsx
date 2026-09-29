@@ -1,16 +1,8 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import type { ModalType } from '../types';
+import { Link } from 'react-router-dom';
 
-interface NavbarProps {
-  onOpenModal: (type: ModalType) => void;
-}
-
-export default function Navbar({ onOpenModal }: NavbarProps) {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
-
-  const isActive = (path: string) => location.pathname === path ? 'active' : '';
 
   const closeMenu = () => setMobileMenuOpen(false);
 

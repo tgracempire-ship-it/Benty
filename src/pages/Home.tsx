@@ -56,9 +56,7 @@ export default function Home() {
       
       {/* Hero Section */}
       <section id="hero" style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
-        <Hero onOpenModal={() => {
-          document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-        }} />
+        <Hero />
       </section>
 
       {/* Services / Expertise */}

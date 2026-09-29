@@ -1,11 +1,6 @@
-import type { ModalType } from '../types';
 import { firmSubtitle, firmTagline } from '../data/firmData';
 
-interface HeroProps {
-  onOpenModal: (type: ModalType) => void;
-}
-
-export default function Hero({ onOpenModal }: HeroProps) {
+export default function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="hero-overlay" />
